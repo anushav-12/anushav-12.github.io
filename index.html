@@ -73,7 +73,7 @@
         <button class="project-toggle" aria-expanded="false" aria-controls="panel-retail">
           <div class="project-toggle-text">
             <h3>Retail Data Platform</h3>
-            <p>An ETL pipeline that generates its own messy data, cleans it, and loads it into a proper warehouse.</p>
+            <p>An ETL pipeline that generates its own messy data, cleans it, and loads it into a star-schema warehouse.</p>
           </div>
           <span class="project-toggle-icon" aria-hidden="true">+</span>
         </button>
@@ -83,14 +83,14 @@
             <button class="pipe-node" data-detail="Faker generates 50,000 synthetic order rows, deliberately seeded with nulls, negative quantities, and duplicate order IDs — so the pipeline has real problems to solve.">
               <span class="pipe-dot"></span>Faker data
             </button>
-            <button class="pipe-node" data-detail="Python (Pandas) validates every row. Bad ones get quarantined into a separate table instead of failing the whole batch — the good 47,733 rows keep moving.">
+            <button class="pipe-node" data-detail="Python (Pandas) validates every row. Bad ones get quarantined instead of failing the whole batch — the good 47,733 rows keep moving, and 2,267 are set aside for review.">
               <span class="pipe-dot"></span>Python transform
             </button>
             <button class="pipe-node" data-detail="Clean rows are batch-upserted (5,000 at a time) into a star schema in Postgres: fact_orders plus dim_customer, dim_product, and dim_date.">
               <span class="pipe-dot"></span>Postgres star schema
             </button>
-            <button class="pipe-node" data-detail="The curated warehouse tables load into BigQuery, with Airflow orchestrating the whole run inside a Docker container so it needs no babysitting.">
-              <span class="pipe-dot"></span>BigQuery + Airflow
+            <button class="pipe-node" data-detail="The whole pipeline is packaged in a Docker image and runs end to end inside a container, so it behaves the same on any machine.">
+              <span class="pipe-dot"></span>Docker packaging
             </button>
             <button class="pipe-node" data-detail="A Power BI dashboard sits on top, turning the warehouse into something a business stakeholder can actually read.">
               <span class="pipe-dot"></span>Power BI
@@ -99,9 +99,9 @@
           <div class="pipe-detail" id="pipeDetail">Click a stage above to see what it does.</div>
           <div class="tags">
             <span>Python</span><span>Pandas</span><span>SQLAlchemy</span><span>PostgreSQL</span>
-            <span>Airflow</span><span>Docker</span><span>BigQuery</span><span>Power BI</span>
+            <span>Docker</span><span>Power BI</span>
           </div>
-          <a class="project-link" href="https://github.com/anushav-12/Retail-data-platform" target="_blank" rel="noopener">View repository →</a>
+          <a class="project-link" href="https://github.com/anushav-12/Retail-etl-pipeline" target="_blank" rel="noopener">View repository →</a>
         </div>
       </article>
 
@@ -148,23 +148,27 @@
       <h2>What I work with</h2>
       <div class="skill-group">
         <span class="skill-group-label">Languages</span>
-        <div class="chip-row"><span class="chip">Python</span><span class="chip">SQL</span></div>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PL/SQL</span></div>
       </div>
       <div class="skill-group">
         <span class="skill-group-label">Databases</span>
-        <div class="chip-row"><span class="chip">PostgreSQL</span><span class="chip">Oracle</span><span class="chip">SQL Server</span><span class="chip">BigQuery</span></div>
+        <div class="chip-row"><span class="chip">PostgreSQL</span><span class="chip">Oracle</span><span class="chip">SQL Server</span></div>
       </div>
       <div class="skill-group">
-        <span class="skill-group-label">Orchestration &amp; infra</span>
-        <div class="chip-row"><span class="chip">Airflow</span><span class="chip">Docker</span></div>
+        <span class="skill-group-label">Containers &amp; tooling</span>
+        <div class="chip-row"><span class="chip">Docker</span><span class="chip">Git</span></div>
       </div>
       <div class="skill-group">
         <span class="skill-group-label">Warehousing &amp; BI</span>
-        <div class="chip-row"><span class="chip">Snowflake</span><span class="chip">Power BI</span></div>
+        <div class="chip-row"><span class="chip">Power BI</span><span class="chip">Star schema modeling</span><span class="chip">Snowflake (basics)</span></div>
       </div>
       <div class="skill-group">
         <span class="skill-group-label">Practices</span>
         <div class="chip-row"><span class="chip">ETL/ELT design</span><span class="chip">Data quality checks</span><span class="chip">Query optimization</span><span class="chip">Performance tuning</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">Currently learning</span>
+        <div class="chip-row"><span class="chip">Airflow</span><span class="chip">AWS (S3, Athena)</span><span class="chip">PySpark</span></div>
       </div>
     </div>
   </section>
@@ -177,9 +181,11 @@
           <div class="timeline-date">Feb 2025 — Present</div>
           <div class="timeline-body">
             <h3>Database Developer / Engineer, Quantum Asia Pvt Ltd</h3>
-            <p>Client: National Informatics Centre, Bangalore. Full ownership of the database — schema
-            design, pipelines between Oracle and PostgreSQL, performance tuning across millions of
-            records, and working directly with government stakeholders on requirements.</p>
+            <p>Client: National Informatics Centre, Bangalore. Full ownership of a database with 50+ tables and
+            millions of records — schema design, PL/SQL functions and procedures, pipelines between Oracle and
+            PostgreSQL, and working directly with government stakeholders on requirements.</p>
+            <p>Cut a key report's runtime from 2–3 minutes to 2–3 seconds through indexing, join optimization
+            and query restructuring.</p>
           </div>
         </li>
         <li>
