@@ -39,8 +39,9 @@ const rfmDefinitions = {
   champions: "Champions: bought recently, buy often, and spend the most. The group worth protecting first.",
   loyal: "Loyal: consistent repeat buyers who aren't necessarily the biggest spenders, but keep coming back.",
   "new": "New: recent first-time buyers with only one or two orders so far — too early to tell where they'll land.",
-  "at-risk": "At risk: used to order regularly but haven't shown up in a while. The churn-risk flag targets this group.",
-  lost: "Lost: haven't ordered in a long time and show no recent activity. Low priority for retention spend.",
+  "at-risk": "At risk: used to order regularly but haven't shown up in a while. This is the largest segment and the top revenue source, which is why the churn-risk flag targets it.",
+   lost: "Lost: haven't ordered in a long time and show no recent activity. Low priority for retention spend.",
+  "needs-attention": "Needs attention: average or better scores across the board, but starting to cool off. A timely nudge can keep them from sliding into at risk.",
 };
 document.querySelectorAll(".rfm-bar").forEach((bar) => {
   bar.addEventListener("click", () => {
